@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h1= title
+  p Add images to the "public/images/trainingimages" directory, if you have not done so, then refresh page.
+  p Type all possilbe image labels seperated by a ",":
+  form(action='/label', method="GET")
+    input(type="text", name="rawLabels")
+    br
+    p Starting file:
+    input(type="text", name="currentFile", value=currentFile)
+    input(type="submit", value="Submit")

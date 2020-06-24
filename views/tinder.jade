@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  h1=title
+  h1=currentFile
+  img(id="imageView" src=currentFile)
+  p Select labels and click confirm:
+  form(action='/performlabel', method="GET")
+    for label in labels
+        ol
+            input(type="checkbox", name="tickedlabels" id=label, value=label,  accesskey="s")
+            label=label
+            br
+    input(type="hidden", id="currentFileInput", name="currentFile", value=currentFileName)
+    input(type="hidden", id="labelInput", name="rawlabels", value=rawlabels)
+    input(type="submit", value="Confirm")
